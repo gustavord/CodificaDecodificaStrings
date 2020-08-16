@@ -42,7 +42,7 @@ public class App {
             return;
         }
 
-        String frase = "Hoje e dia 10 de marco de 2020";
+        String frase = "Amanha e o dia da zebra.";
         try {
             for (String cod : codificadores) {
                 Class<?> clazz = Class.forName("Codificadores." + cod);

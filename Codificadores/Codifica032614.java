@@ -1,7 +1,7 @@
 package Codificadores;
 
 public class Codifica032614 implements Codifica {
-    private static String tabela = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz@#";
+    private static String tabela = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890abcdefghijklmnopqrstuvwxyz";
     private static int deslc = 2;
 
     @Override
@@ -13,7 +13,8 @@ public class Codifica032614 implements Codifica {
             } else {
                 for (int i = 0; i < tabela.length(); i++) {
                     if (tabela.charAt(i) == s) {
-                        codificada += tabela.charAt(i + deslc);
+                        int pos = Math.floorMod((i+deslc), tabela.length());
+                        codificada += tabela.charAt(pos);
                     }
                 }
             }
@@ -30,7 +31,8 @@ public class Codifica032614 implements Codifica {
             } else {
                 for (int i = 0; i < tabela.length(); i++) {
                     if (tabela.charAt(i) == s) {
-                        decodificada += tabela.charAt(i - deslc);
+                        int pos = Math.floorMod((i-deslc), tabela.length());
+                        decodificada += tabela.charAt(pos);
                     }
                 }
             }
